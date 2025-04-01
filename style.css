@@ -519,70 +519,164 @@ footer {
   font-size: 12px;
 }
 
+/* Responsive Styles */
+
 @media only screen and (max-width: 768px) {
+  /* Header */
   header {
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .logo img {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+  }
+
+  .name {
+    font-size: 80%;
+  }
+
+  .menu {
+    display: block;
+    cursor: pointer;
+    font-size: 24px;
+    color: #c2c2c2;
+    align-self: flex-end; /* Fix alignment */
+    padding: 10px;
+    z-index: 1001; /* Ensure it's above other elements */
   }
 
   nav ul {
-    display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
     position: absolute;
     top: 60px;
     left: 0;
-    width: 90%;
-    background: #ffffff;
-    padding: 15px 0;
+    padding: 10px 0;
+    display: none;
+    z-index: 1000; /* Ensure it's above other elements */
   }
 
   nav ul.active {
     display: flex;
   }
 
+  nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
   nav ul li {
-    text-align: right;
     margin: 10px 0;
   }
 
-  .menu-icon {
-    display: flex;
+  /* Intro Section */
+  .intro {
+    padding: 150px 20px;
   }
 
-  .hero h1 {
-    font-size: 25px;
+  .intro h1 {
+    font-size: 2rem;
   }
 
+  .intro p {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .resume-btn {
+    font-size: 16px;
+    padding: 15px 30px;
+  }
+
+  /* Social Sidebar */
   .social-sidebar {
     display: none;
   }
 
+  /* About Section */
   .about-content {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .about-text {
+    min-width: 100%;
+    padding: 10px;
+  }
+
+  .about-text h3 {
+    font-size: 22px;
+  }
+
+  .skills {
+    width: 100%;
     text-align: center;
   }
 
   .skills-list {
     justify-content: center;
+    gap: 10px;
   }
 
+  .skills-list span {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  /* Projects Section */
   .project {
     flex-direction: column;
     text-align: center;
+    padding: 20px;
   }
 
+  .project1,
+  .project2 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .project-details {
+    padding: 10px;
+  }
+
+  .GitBtn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  /* Contact Section */
   .container {
     padding: 10px;
     width: 90%;
   }
 
-  .navbar {
-    flex-direction: column;
-    text-align: center;
+  .fs-form {
+    padding: 20px;
   }
 
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 16px;
+  .fs-button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 5px;
   }
 }
