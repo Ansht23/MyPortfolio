@@ -1,0 +1,1335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ansh Tiwari | Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --sg: "Space Grotesk", sans-serif;
+        --sm: "Space Mono", monospace;
+        --accent: #1d9e75;
+        --accent-light: #e1f5ee;
+        --accent-mid: #5dcaa5;
+        --accent-dark: #085041;
+        --ink: #1a1a1a;
+        --muted: #6b6b6b;
+        --border: rgba(0, 0, 0, 0.1);
+        --surface: #f5f5f3;
+        --card: #ffffff;
+        --page: #fafafa;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --ink: #e8e8e6;
+          --muted: #999997;
+          --border: rgba(255, 255, 255, 0.1);
+          --surface: #1e1e1c;
+          --card: #141412;
+          --page: #111110;
+          --accent-light: #04342c;
+          --accent-dark: #9fe1cb;
+        }
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sg);
+        color: var(--ink);
+        background: var(--page);
+        line-height: 1.6;
+      }
+
+      /* ── NAV ── */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 2rem;
+        border-bottom: 0.5px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: var(--card);
+        z-index: 100;
+        backdrop-filter: blur(8px);
+      }
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        text-decoration: none;
+      }
+      .nav-photo {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1.5px solid var(--accent);
+        flex-shrink: 0;
+        background: var(--surface);
+      }
+      .nav-name {
+        font-family: var(--sm);
+        font-size: 14px;
+        color: var(--ink);
+        letter-spacing: 0.02em;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 14px;
+        color: var(--muted);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+      .nav-resume {
+        font-size: 14px;
+        color: var(--accent);
+        text-decoration: none;
+        border: 0.5px solid var(--accent);
+        padding: 0.4rem 1rem;
+        border-radius: 6px;
+        transition: background 0.2s;
+        font-family: var(--sm);
+      }
+      .nav-resume:hover {
+        background: var(--accent-light);
+      }
+      .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--ink);
+        font-size: 22px;
+      }
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 2rem;
+        border-bottom: 0.5px solid var(--border);
+        background: var(--card);
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        font-size: 15px;
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      /* ── LAYOUT ── */
+      .container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        padding: 7rem 2rem 6rem;
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--sm);
+        font-size: 14px;
+        color: var(--accent);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 1.75rem;
+      }
+      .eyebrow-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent);
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+      }
+      .hero h1 {
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        font-weight: 500;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.025em;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--accent);
+      }
+      .hero-sub {
+        font-size: 18px;
+        color: var(--muted);
+        max-width: 520px;
+        margin-bottom: 2.5rem;
+        line-height: 1.75;
+      }
+      .hero-cta {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: opacity 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .btn-primary:hover {
+        opacity: 0.88;
+      }
+      .btn-ghost {
+        background: transparent;
+        color: var(--ink);
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        border: 0.5px solid var(--border);
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .btn-ghost:hover {
+        background: var(--surface);
+      }
+      .hero-stats {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 4rem;
+        padding-top: 3rem;
+        border-top: 0.5px solid var(--border);
+        flex-wrap: wrap;
+      }
+      .stat-num {
+        font-family: var(--sm);
+        font-size: 50px;
+        color: var(--accent);
+        font-weight: 700;
+      }
+      .stat-label {
+        font-size: 18px;
+        color: var(--muted);
+        margin-top: 0.25rem;
+      }
+
+      /* ── SECTIONS ── */
+      section {
+        padding: 5rem 0;
+      }
+      section + section {
+        border-top: 0.5px solid var(--border);
+      }
+      .section-label {
+        font-family: var(--sm);
+        font-size: 14px;
+        color: var(--accent);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .section-label::after {
+        content: "";
+        flex: 1;
+        height: 0.5px;
+        background: var(--border);
+      }
+      h2 {
+        font-size: 36px;
+        font-weight: 500;
+        margin-bottom: 1.25rem;
+        letter-spacing: -0.02em;
+      }
+      .section-intro {
+        font-size: 16px;
+        color: var(--muted);
+        max-width: 580px;
+        line-height: 1.75;
+        margin-bottom: 2rem;
+      }
+
+      /* ── SKILLS ── */
+      .skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      .skill-tag {
+        font-family: var(--sm);
+        font-size: 14px;
+        padding: 0.35rem 0.85rem;
+        border-radius: 4px;
+        border: 0.5px solid var(--border);
+        color: var(--muted);
+        background: var(--surface);
+      }
+      .skill-tag.highlight {
+        background: var(--accent-light);
+        border-color: var(--accent-mid);
+        color: var(--accent-dark);
+      }
+
+      /* ── EXPERIENCE ── */
+      .exp-card {
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem 1.75rem;
+        margin-bottom: 1.25rem;
+        background: var(--card);
+        position: relative;
+        overflow: hidden;
+      }
+      .exp-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--accent);
+      }
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .exp-role {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+      .exp-company {
+        font-size: 1.75rem;
+        color: var(--accent);
+        margin-top: 0.15rem;
+      }
+      .exp-date {
+        font-family: var(--sm);
+        font-size: 12px;
+        color: var(--muted);
+        background: var(--surface);
+        padding: 0.3rem 0.75rem;
+        border-radius: 4px;
+        white-space: nowrap;
+      }
+      .exp-bullets {
+        list-style: none;
+        margin-top: 0.75rem;
+      }
+      .exp-bullets li {
+        font-size: 14px;
+        color: var(--muted);
+        padding: 0.3rem 0 0.3rem 1.25rem;
+        position: relative;
+        line-height: 1.6;
+      }
+      .exp-bullets li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 12px;
+        top: 0.38rem;
+      }
+
+      /* ── CLIENT WORK ── */
+      .client-tabs {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .tab-btn {
+        font-size: 13px;
+        padding: 0.5rem 1.1rem;
+        border-radius: 8px;
+        border: 0.5px solid var(--border);
+        background: var(--surface);
+        color: var(--muted);
+        cursor: pointer;
+        font-family: var(--sg);
+        transition: all 0.2s;
+      }
+      .tab-btn.active {
+        background: var(--accent);
+        color: #fff;
+        border-color: var(--accent);
+      }
+      .tab-btn:hover:not(.active) {
+        border-color: var(--accent-mid);
+        color: var(--ink);
+      }
+      .client-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+      .client-card {
+        background: var(--card);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        transition: border-color 0.2s;
+        display: flex;
+        flex-direction: column;
+      }
+      .client-card:hover {
+        border-color: var(--accent-mid);
+      }
+      .client-num {
+        font-family: var(--sm);
+        font-size: 11px;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.08em;
+      }
+      .client-name {
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 0.4rem;
+      }
+      .client-meta {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+      .client-badge {
+        display: inline-block;
+        font-size: 11px;
+        padding: 0.2rem 0.6rem;
+        border-radius: 4px;
+        margin-top: 0.75rem;
+        background: var(--accent-light);
+        color: var(--accent-dark);
+        font-family: var(--sm);
+      }
+      .client-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 12px;
+        color: var(--accent);
+        text-decoration: none;
+        margin-top: 0.75rem;
+        font-weight: 500;
+        transition: opacity 0.2s;
+      }
+      .client-link:hover {
+        opacity: 0.75;
+      }
+      .client-link i {
+        font-size: 13px;
+      }
+      .client-note {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 1rem;
+        font-style: italic;
+      }
+
+      /* ── PROJECTS ── */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+      .project-card {
+        background: var(--card);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition: border-color 0.2s;
+      }
+      .project-card:hover {
+        border-color: var(--accent-mid);
+      }
+      .project-icon {
+        width: 36px;
+        height: 36px;
+        background: var(--accent-light);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      .project-icon i {
+        font-size: 18px;
+        color: var(--accent-dark);
+      }
+      .project-title {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      .project-desc {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+        margin-bottom: 1rem;
+      }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+      }
+      .project-tag {
+        font-size: 11px;
+        font-family: var(--sm);
+        padding: 0.2rem 0.6rem;
+        background: var(--surface);
+        border-radius: 4px;
+        color: var(--muted);
+      }
+      .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 12px;
+        color: var(--accent);
+        text-decoration: none;
+        margin-top: 0.85rem;
+        font-weight: 500;
+        transition: opacity 0.2s;
+      }
+      .project-link:hover {
+        opacity: 0.75;
+      }
+      .project-link i {
+        font-size: 14px;
+      }
+
+      /* ── CONTACT ── */
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        align-items: start;
+      }
+      .contact-detail {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        padding: 1rem 1.25rem;
+        background: var(--card);
+        border: 0.5px solid var(--border);
+        border-radius: 8px;
+        margin-bottom: 0.75rem;
+        text-decoration: none;
+        color: var(--ink);
+        transition: border-color 0.2s;
+      }
+      .contact-detail:hover {
+        border-color: var(--accent-mid);
+      }
+      .contact-detail i {
+        font-size: 18px;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+      .contact-label {
+        font-size: 11px;
+        color: var(--muted);
+        font-family: var(--sm);
+      }
+      .contact-val {
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 0.1rem;
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        font-family: var(--sg);
+        font-size: 14px;
+        padding: 0.75rem 1rem;
+        background: var(--card);
+        border: 0.5px solid var(--border);
+        border-radius: 8px;
+        color: var(--ink);
+        resize: vertical;
+        transition: border-color 0.2s;
+        outline: none;
+      }
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: var(--accent-mid);
+      }
+      .contact-form textarea {
+        min-height: 130px;
+      }
+      .contact-form button {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        padding: 0.85rem;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        font-family: var(--sg);
+        transition: opacity 0.2s;
+      }
+      .contact-form button:hover {
+        opacity: 0.88;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        text-align: center;
+        padding: 2rem;
+        border-top: 0.5px solid var(--border);
+        font-size: 12px;
+        color: var(--muted);
+        font-family: var(--sm);
+      }
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 640px) {
+        nav {
+          padding: 1rem 1.25rem;
+        }
+        .nav-links,
+        .nav-resume {
+          display: none;
+        }
+        .hamburger {
+          display: block;
+        }
+        .hero {
+          padding: 4rem 1.25rem 3rem;
+        }
+        .container {
+          padding: 0 1.25rem;
+        }
+        section {
+          padding: 3.5rem 0;
+        }
+        .hero-stats {
+          gap: 1.5rem;
+        }
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a class="nav-brand" href="#home">
+        <img
+          class="nav-photo"
+          src="profile.jpg"
+          alt="Ansh Tiwari"
+          onerror="this.style.display = 'none'"
+        />
+        <span class="nav-name">Ansh Tiwari</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Work</a></li>
+        <li><a href="#client-work">Client Sites</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="nav-resume" href="Ansh_Tiwari_Resume.pdf" target="_blank"
+        >Download Resume ↗</a
+      >
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <i class="ti ti-menu-2"></i>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#experience" onclick="closeMenu()">Work</a>
+      <a href="#client-work" onclick="closeMenu()">Client Sites</a>
+      <a href="#projects" onclick="closeMenu()">Projects</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="Ansh_Tiwari_Resume.pdf" target="_blank">Download Resume ↗</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        Available for work
+      </div>
+      <h1>Full-stack developer<br />who ships <em>real things</em></h1>
+      <p class="hero-sub">
+        I build responsive websites and mobile app workflows on Shopify, Wix
+        Studio, and FlutterFlow — and I've launched 15 production sites for real
+        clients.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">
+          <i class="ti ti-mail" style="font-size: 15px"></i> Get in touch
+        </a>
+        <a href="Ansh_Tiwari_Resume.pdf" class="btn-ghost" target="_blank">
+          <i class="ti ti-download" style="font-size: 15px"></i> Download Resume
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">15</div>
+          <div class="stat-label">Production websites shipped</div>
+        </div>
+        <div>
+          <div class="stat-num">2</div>
+          <div class="stat-label">Years of industry experience</div>
+        </div>
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Platforms mastered</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-label">About</div>
+        <h2>Builder at heart,<br />engineer by trade</h2>
+        <p class="section-intro">
+          I'm a full-stack developer based in Rajasthan, India. I specialize in
+          building responsive websites and e-commerce storefronts — customizing
+          themes, integrating third-party tools, and shipping UI/UX improvements
+          for real clients. I care about clean code, fast load times, and UX
+          that actually makes sense to real people.
+        </p>
+        <div class="section-label" style="margin-top: 2rem">
+          Technical skills
+        </div>
+        <div class="skills-grid">
+          <span class="skill-tag highlight">Shopify</span>
+          <span class="skill-tag highlight">Wix Studio</span>
+          <span class="skill-tag highlight">FlutterFlow</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag highlight">JavaScript</span>
+          <span class="skill-tag">Java Servlets / JSP</span>
+          <span class="skill-tag">JDBC</span>
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag highlight">Supabase</span>
+          <span class="skill-tag highlight">Git &amp; GitHub</span>
+          <span class="skill-tag highlight">Postman</span>
+          <span class="skill-tag">Vercel</span>
+          <span class="skill-tag">Figma</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-label">Experience</div>
+        <h2>Where I've worked</h2>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Software Developer</div>
+              <div class="exp-company">Chirro, Udaipur</div>
+            </div>
+            <span class="exp-date">Apr 2025 — Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>
+              Built and maintained 15 responsive client websites using Shopify,
+              Wix Studio, and FlutterFlow
+            </li>
+            <li>
+              Customized themes, integrated third-party apps, and shipped UI/UX
+              improvements for client projects
+            </li>
+            <li>
+              Contributed to the development and deployment workflow of a
+              FlutterFlow mobile app published on iOS and Android
+            </li>
+            <li>
+              Supported mobile app workflows — deployment, debugging,
+              optimization, and post-launch maintenance
+            </li>
+          </ul>
+        </div>
+
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Full Stack Intern</div>
+              <div class="exp-company">Technology Twist</div>
+            </div>
+            <span class="exp-date">Jul 2024 — Sep 2024</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>
+              Built a full-stack student ID card management system using HTML,
+              CSS, JavaScript, Java Servlets/JSP, and JDBC
+            </li>
+            <li>
+              Designed backend logic and database integration enabling secure
+              CRUD operations and efficient data handling
+            </li>
+            <li>
+              Performed testing, debugging, deployment, and responsive
+              optimization for cross-browser compatibility
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT WORK -->
+    <section id="client-work">
+      <div class="container">
+        <div class="section-label">Client work at Chirro</div>
+        <h2>Sites I've built &amp; shipped</h2>
+        <p class="section-intro">
+          15 live production websites and one mobile app, delivered across
+          Shopify, Wix Studio, and FlutterFlow.
+        </p>
+
+        <div class="client-tabs">
+          <button class="tab-btn active" onclick="filterWork('all', this)">
+            All (16)
+          </button>
+          <button class="tab-btn" onclick="filterWork('ecom', this)">
+            Shopify (5)
+          </button>
+          <button class="tab-btn" onclick="filterWork('cms', this)">
+            Wix Studio (10)
+          </button>
+          <button class="tab-btn" onclick="filterWork('app', this)">
+            Mobile App (1)
+          </button>
+        </div>
+
+        <div class="client-grid" id="client-grid">
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 01</div>
+            <div class="client-name">Allsterra</div>
+            <div class="client-meta">
+              Culture-driven luxury design brand blending fine art and crafted
+              stones, built with Wix Studio CMS
+            </div>
+            <a
+              class="client-link"
+              href="https://www.allsterra.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> allsterra.com
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 02</div>
+            <div class="client-name">Dev Bagh Resort</div>
+            <div class="client-meta">
+              Luxury resort website near Udaipur with suite showcases, gallery,
+              and booking integration
+            </div>
+            <a
+              class="client-link"
+              href="https://www.devbaghresort.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> devbaghresort.com
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 03</div>
+            <div class="client-name">House of Fenny</div>
+            <div class="client-meta">
+              Brand website built on Wix Studio with custom CMS collections and
+              a polished visual layout
+            </div>
+            <a
+              class="client-link"
+              href="https://www.houseoffenny.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> houseoffenny.com
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 04</div>
+            <div class="client-name">House of Words</div>
+            <div class="client-meta">
+              Content-driven business site built and hosted on the Wix Studio
+              platform
+            </div>
+            <a
+              class="client-link"
+              href="https://chirro.wixstudio.com/houseofwords"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> houseofwords
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 05</div>
+            <div class="client-name">Krayr Media</div>
+            <div class="client-meta">
+              Media/agency website with service pages and lead capture, built on
+              Wix Studio
+            </div>
+            <a
+              class="client-link"
+              href="https://www.krayrmedia.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> krayrmedia.com
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 06</div>
+            <div class="client-name">Truly Villas</div>
+            <div class="client-meta">
+              Villa rental/hospitality website with property showcases and
+              inquiry forms
+            </div>
+            <a
+              class="client-link"
+              href="https://www.trulyvillas.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> trulyvillas.com
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 07</div>
+            <div class="client-name">Mahi Excavation</div>
+            <div class="client-meta">
+              Industrial/construction services website with service listings and
+              contact CMS
+            </div>
+            <a
+              class="client-link"
+              href="https://www.mahiexcavation.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> mahiexcavation.com
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 08</div>
+            <div class="client-name">Anava Collective</div>
+            <div class="client-meta">
+              Collective/brand website built with Wix Studio, featuring a custom
+              CMS-backed layout
+            </div>
+            <a
+              class="client-link"
+              href="https://www.anavacollective.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> anavacollective.com
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 09</div>
+            <div class="client-name">Emotion Architects</div>
+            <div class="client-meta">
+              UK-based design/branding studio site with a modern, CMS-driven
+              portfolio layout
+            </div>
+            <a
+              class="client-link"
+              href="https://www.emotionarchitects.co.uk/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> emotionarchitects.co.uk
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="cms">
+            <div class="client-num">SITE 10</div>
+            <div class="client-name">Krayr Academy</div>
+            <div class="client-meta">
+              Education/coaching platform website with course listings, built on
+              Wix Studio
+            </div>
+            <a
+              class="client-link"
+              href="https://www.krayracademy.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> krayracademy.com
+            </a>
+            <span class="client-badge">Wix Studio</span>
+          </div>
+          <div class="client-card" data-type="ecom">
+            <div class="client-num">SHOP 01</div>
+            <div class="client-name">Art by Krii</div>
+            <div class="client-meta">
+              Sports & celebrity merch store — keychains, frames, hampers —
+              built on Shopify with custom collections
+            </div>
+            <a
+              class="client-link"
+              href="https://artbykrii.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> artbykrii.com
+            </a>
+            <span class="client-badge">Shopify</span>
+          </div>
+          <div class="client-card" data-type="ecom">
+            <div class="client-num">SHOP 02</div>
+            <div class="client-name">Rare Joy Gifts</div>
+            <div class="client-meta">
+              Curated gifting store built on Shopify with custom product catalog
+              and checkout flow
+            </div>
+            <a
+              class="client-link"
+              href="https://rarejoygifts.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> rarejoygifts.com
+            </a>
+            <span class="client-badge">Shopify</span>
+          </div>
+          <div class="client-card" data-type="ecom">
+            <div class="client-num">SHOP 03</div>
+            <div class="client-name">YUJ Clothing</div>
+            <div class="client-meta">
+              Apparel brand storefront on Shopify with responsive collection
+              pages and theme customization
+            </div>
+            <a
+              class="client-link"
+              href="https://yujclothing.com/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> yujclothing.com
+            </a>
+            <span class="client-badge">Shopify</span>
+          </div>
+          <div class="client-card" data-type="ecom">
+            <div class="client-num">SHOP 04</div>
+            <div class="client-name">Jarbe Store</div>
+            <div class="client-meta">
+              Shopify storefront with custom theme setup and product catalog
+              management
+            </div>
+            <span class="client-badge">Shopify</span>
+          </div>
+          <div class="client-card" data-type="ecom">
+            <div class="client-num">SHOP 05</div>
+            <div class="client-name">Ewhitelight</div>
+            <div class="client-meta">
+              Shopify storefront with custom theme setup and product catalog
+              management
+            </div>
+            <span class="client-badge">Shopify</span>
+          </div>
+          <div class="client-card" data-type="app">
+            <div class="client-num">APP 01</div>
+            <div class="client-name">Village App</div>
+            <div class="client-meta">
+              FlutterFlow-based mobile application published on iOS and Android,
+              contributed to development and deployment workflow
+            </div>
+            <a
+              class="client-link"
+              href="https://www.villageapp.in/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-external-link"></i> villageapp.in
+            </a>
+            <span class="client-badge">FlutterFlow</span>
+          </div>
+        </div>
+        <p class="client-note">
+          All sites listed above are live and were built or co-built as part of
+          client work at Chirro.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-label">Personal projects</div>
+        <h2>Things I've built for myself</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-icon">
+              <i class="ti ti-search" aria-hidden="true"></i>
+            </div>
+            <div class="project-title">Recipe Search App</div>
+            <div class="project-desc">
+              Responsive recipe discovery app using the MealDB API. Real-time
+              search, interactive UI, mobile-first design.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">MealDB API</span>
+            </div>
+            <a
+              href="https://github.com/Ansht23/Recipe-App.git"
+              class="project-link"
+              target="_blank"
+            >
+              <i class="ti ti-brand-github"></i> GitHub
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon">
+              <i class="ti ti-device-gamepad-2" aria-hidden="true"></i>
+            </div>
+            <div class="project-title">Rock Paper Scissors</div>
+            <div class="project-desc">
+              Interactive browser game with dynamic UI and smooth game logic — a
+              solid JS fundamentals exercise.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <a
+              href="https://github.com/Ansht23/rock-paper-scissor.git"
+              class="project-link"
+              target="_blank"
+            >
+              <i class="ti ti-brand-github"></i> GitHub
+            </a>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon">
+              <i class="ti ti-id-badge-2" aria-hidden="true"></i>
+            </div>
+            <div class="project-title">Student ID Card System</div>
+            <div class="project-desc">
+              Full-stack management system with secure CRUD ops, Java
+              Servlets/JSP backend, and JDBC database integration.
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">Java Servlets</span>
+              <span class="project-tag">JSP</span>
+              <span class="project-tag">JDBC</span>
+              <span class="project-tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-label">Contact</div>
+        <h2>Let's work together</h2>
+        <div class="contact-wrap">
+          <div>
+            <p
+              style="
+                color: var(--muted);
+                font-size: 15px;
+                margin-bottom: 1.5rem;
+                line-height: 1.75;
+              "
+            >
+              Open to full-time roles, freelance projects, and collaborations.
+              I'm fastest on email.
+            </p>
+            <a class="contact-detail" href="mailto:anshtiwari231102@gmail.com">
+              <i class="ti ti-mail" aria-hidden="true"></i>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-val">anshtiwari231102@gmail.com</div>
+              </div>
+            </a>
+            <a class="contact-detail" href="tel:+919413293707">
+              <i class="ti ti-phone" aria-hidden="true"></i>
+              <div>
+                <div class="contact-label">Phone</div>
+                <div class="contact-val">+91 94132 93707</div>
+              </div>
+            </a>
+            <a
+              class="contact-detail"
+              href="https://www.linkedin.com/in/ansh-tiwari23/"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-brand-linkedin" aria-hidden="true"></i>
+              <div>
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-val">ansh-tiwari23</div>
+              </div>
+            </a>
+            <a
+              class="contact-detail"
+              href="https://github.com/Ansht23"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="ti ti-brand-github" aria-hidden="true"></i>
+              <div>
+                <div class="contact-label">GitHub</div>
+                <div class="contact-val">Ansht23</div>
+              </div>
+            </a>
+          </div>
+          <div>
+            <form
+              action="https://formspree.io/f/xwplndgr"
+              method="POST"
+              target="_top"
+              class="contact-form"
+            >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your name"
+                autocomplete="name"
+                required
+              />
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+                required
+              />
+
+              <textarea
+                id="message"
+                name="message"
+                placeholder="What would you like to discuss?"
+                required
+              ></textarea>
+
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; 2026 <a href="#home">Ansh Tiwari</a> — Built with intention.
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("mobileMenu").classList.toggle("open");
+      }
+      function closeMenu() {
+        document.getElementById("mobileMenu").classList.remove("open");
+      }
+      function filterWork(type, btn) {
+        document
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        document.querySelectorAll(".client-card").forEach((card) => {
+          card.style.display =
+            type === "all" || card.dataset.type === type ? "" : "none";
+        });
+      }
+    </script>
+  </body>
+</html>
